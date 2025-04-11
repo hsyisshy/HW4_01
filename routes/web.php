@@ -15,3 +15,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login.ui');
+
+Route::get('/profile', function () {
+    $messages = App\Models\Message::where('author', 'Shan-Yu')->get();
+    return view('users.profile', compact('messages'));
+})->name('profile');

@@ -1,0 +1,325 @@
+/* ===== 整體 Layout ===== */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f8f8f8;
+    overflow-y: auto;
+  }
+
+  .app-layout {
+    display: flex;
+    height: 100vh;
+    min-height: 100vh;
+  }
+
+  /* ===== 左側導覽列 Sidebar ===== */
+  .sidebar {
+    position: fixed;
+    width: 160px;
+    height: 100vh;
+    border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em 0;
+    z-index: 1000;
+  }
+
+  /* 上方 logo */
+  .sidebar-top {
+    margin-bottom: 2em;
+  }
+
+  .logo {
+    width: 30px;
+  }
+
+  /* 中間主功能 icon 區 */
+  .sidebar-middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5em; /* icon 間距 */
+  }
+
+  /* 下方附加功能 icon 區 */
+  .sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 5em;
+  }
+
+  /* icon 樣式（中下兩區通用） */
+  .sidebar-middle a,
+  .sidebar-bottom a {
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+  }
+
+  .sidebar-middle a:hover,
+  .sidebar-bottom a:hover {
+    opacity: 1;
+  }
+
+  .sidebar img {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* ===== 主內容區 ===== */
+  .main-content {
+    flex: 1;
+    padding: 2em 1em;
+    max-width: 600px;
+    margin: 0 auto;
+    max-width: 720px; /* Threads 類推文最大寬度 */
+  }
+
+  /* ===== Threads 卡片樣式 ===== */
+  .threads-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  .thread-card {
+    background-color: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 16px;
+    padding: 1.5em 2em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    text-align: left;
+  }
+
+  .thread-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8em;
+    text-align: left;
+  }
+
+  .avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .author {
+    font-weight: bold;
+    font-size: 0.95em;
+  }
+
+  .timestamp {
+    font-size: 0.8em;
+    color: #888;
+  }
+
+  .thread-content {
+    margin: 1em 0 0.5em;
+    font-size: 1em;
+    line-height: 1.6;
+    color: #222;
+  }
+
+  .thread-actions {
+    font-size: 0.9em;
+    color: #888;
+    display: flex;
+    gap: 1em;
+  }
+
+
+  /* ===== 登入介面 ===== */
+  .login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fafafa;
+  }
+
+  .login-container {
+    background-color: white;
+    padding: 3em 2em;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    text-align: center;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .login-container h1 {
+    margin-bottom: 1.5em;
+    font-size: 1.5em;
+  }
+
+  .login-container input {
+    width: 100%;
+    padding: 0.9em 1em;
+    margin-bottom: 1em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+
+  .login-container button {
+    width: 100%;
+    padding: 0.9em;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .login-container button:hover {
+    background-color: #333;
+  }
+
+  .signup-link {
+    margin-top: 1em;
+    font-size: 0.9em;
+  }
+
+  /* ===== 發文 ===== */
+  .input-author {
+    border: none;
+    font-weight: bold;
+    font-size: 1em;
+    background: transparent;
+    outline: none;
+  }
+
+  .thread-content-area textarea {
+    width: 100%;
+    padding: 1em;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    resize: vertical;
+    margin-top: 1em;
+    box-sizing: border-box;
+    font-family: inherit;
+  }
+
+  .form-submit {
+    margin-top: 1em;
+    text-align: right;
+  }
+
+  .form-submit button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 0.8em 1.6em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+  }
+
+  .form-submit button:hover {
+    background-color: #333;
+  }
+
+  /* ===== 個人資料介面 ===== */
+  .profile-container {
+    margin-bottom: 2em;
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    margin-bottom: 2em;
+  }
+
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  .profile-info {
+    flex: 1;
+  }
+
+  .profile-name {
+    font-size: 1.4em;
+    margin-bottom: 0.2em;
+  }
+
+  .profile-bio {
+    color: #555;
+    margin-bottom: 0.5em;
+  }
+
+  .profile-stats {
+    font-size: 0.9em;
+    color: #777;
+  }
+
+
+
+  /* RWD */
+  @media (max-width: 768px) {
+
+    .sidebar {
+      position: fixed;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 100vw;
+      height: 60px;
+      padding: 0;
+      bottom: 0;
+      top: auto;
+      border-right: none;
+      border-top: 1px solid #eee;
+      background-color: #fff;
+    }
+
+    .sidebar-top,
+    .sidebar-bottom {
+      display: none;
+    }
+
+    .sidebar-middle {
+      flex-direction: row;
+      gap: 3em;
+    }
+
+    .sidebar img {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* 內容往下移 */
+    .main-content {
+      margin-top: 1em;
+      padding-bottom: 4em;
+      max-width: 95%;
+    }
+
+    .thread-card {
+      padding: 1em;
+    }
+
+    .login-container {
+      width: 90%;
+      padding: 2em 1.5em;
+    }
+
+    .thread-content-area textarea {
+      font-size: 0.95em;
+    }
+  }
+
+
+
