@@ -1,10 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', [HomeController::class, 'index'])->name('messages.index');
+Route::get('/home/create', [HomeController::class, 'create'])->name('messages.create');
+Route::post('/home', [HomeController::class, 'store'])->name('messages.store');
 
 Route::middleware([
     'auth:sanctum',
