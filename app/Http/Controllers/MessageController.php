@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Message;
 use App\Http\Resources\MessageResource;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
+    use AuthorizesRequests;
     public function index()
     {
         $messages = Message::with('user')->get();
@@ -36,11 +38,10 @@ class MessageController extends Controller
     }
 
     public function update(Request $request, $id) {
+        
         $message = Message::findOrFail($id);
         
-        if ($message->user_id !== Auth::id()) {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
+        $this->authorize('update', $message);
 
         $request->validate([
             'content' => 'required|string|max:255',
@@ -56,12 +57,10 @@ class MessageController extends Controller
     public function destroy($id) {
         $message = Message::findOrFail($id);
         
-        if ($message->user_id !== Auth::id()) {
-            return response()->json(['message' => 'Unauthorized'], 403);
-        }
+        $this->authorize('delete', $message);
 
         $message->delete();
 
-        return response()->json(['message' => 'Message deleted successfully'], 200);
+        return response()->json(['message' => 'Message deleted successfully'], 204);
     }
 }
