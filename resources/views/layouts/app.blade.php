@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Threads 留言板')</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
@@ -24,7 +25,7 @@
     <a href="#"><img src="/icons/search.svg" alt="搜尋"></a>
     <a href="{{ route('messages.create') }}"><img src="/icons/plus.svg" alt="發文"></a>
     <a href="#"><img src="/icons/heart.svg" alt="喜歡"></a>
-    <a href="#"><img src="/icons/user.svg" alt="個人"></a>
+    <a href="{{ route('profile') }}"><img src="/icons/user.svg" alt="個人"></a>
   </div>
 
   <!-- Bottom Additional Options -->

@@ -227,3 +227,99 @@ body {
   .form-submit button:hover {
     background-color: #333;
   }
+
+  /* ===== 個人資料介面 ===== */
+  .profile-container {
+    margin-bottom: 2em;
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    margin-bottom: 2em;
+  }
+
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  .profile-info {
+    flex: 1;
+  }
+
+  .profile-name {
+    font-size: 1.4em;
+    margin-bottom: 0.2em;
+  }
+
+  .profile-bio {
+    color: #555;
+    margin-bottom: 0.5em;
+  }
+
+  .profile-stats {
+    font-size: 0.9em;
+    color: #777;
+  }
+
+
+
+  /* RWD */
+  @media (max-width: 768px) {
+
+    .sidebar {
+      position: fixed;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 100vw;
+      height: 60px;
+      padding: 0;
+      bottom: 0;
+      top: auto;
+      border-right: none;
+      border-top: 1px solid #eee;
+      background-color: #fff;
+    }
+
+    .sidebar-top,
+    .sidebar-bottom {
+      display: none;
+    }
+
+    .sidebar-middle {
+      flex-direction: row;
+      gap: 3em;
+    }
+
+    .sidebar img {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* 內容往下移 */
+    .main-content {
+      margin-top: 1em;
+      padding-bottom: 4em;
+      max-width: 95%;
+    }
+
+    .thread-card {
+      padding: 1em;
+    }
+
+    .login-container {
+      width: 90%;
+      padding: 2em 1.5em;
+    }
+
+    .thread-content-area textarea {
+      font-size: 0.95em;
+    }
+  }
+
+
+

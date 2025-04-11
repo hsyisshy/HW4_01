@@ -2,7 +2,7 @@
 
 @extends('layouts.app')
 
-@section('title', '留言板 Threads 風格')
+@section('title', 'Threads')
 
 @section('content')
 <div class="threads-container">
