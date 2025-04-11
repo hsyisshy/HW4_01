@@ -1,0 +1,132 @@
+/* ===== 整體 Layout ===== */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f8f8f8;
+    overflow-y: auto;
+  }
+
+  .app-layout {
+    display: flex;
+    height: 100vh;
+    min-height: 100vh;
+  }
+
+  /* ===== 左側導覽列 Sidebar ===== */
+  .sidebar {
+    position: fixed;
+    width: 160px;
+    height: 100vh;
+    border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em 0;
+    z-index: 1000;
+  }
+
+  /* 上方 logo */
+  .sidebar-top {
+    margin-bottom: 2em;
+  }
+
+  .logo {
+    width: 30px;
+  }
+
+  /* 中間主功能 icon 區 */
+  .sidebar-middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5em; /* icon 間距 */
+  }
+
+  /* 下方附加功能 icon 區 */
+  .sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 5em;
+  }
+
+  /* icon 樣式（中下兩區通用） */
+  .sidebar-middle a,
+  .sidebar-bottom a {
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+  }
+
+  .sidebar-middle a:hover,
+  .sidebar-bottom a:hover {
+    opacity: 1;
+  }
+
+  .sidebar img {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* ===== 主內容區 ===== */
+  .main-content {
+    flex: 1;
+    padding: 2em 1em;
+    max-width: 600px;
+    margin: 0 auto;
+    max-width: 720px; /* Threads 類推文最大寬度 */
+  }
+
+  /* ===== Threads 卡片樣式 ===== */
+  .threads-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  .thread-card {
+    background-color: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 16px;
+    padding: 1.5em 2em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    text-align: left;
+  }
+
+  .thread-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8em;
+    text-align: left;
+  }
+
+  .avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .author {
+    font-weight: bold;
+    font-size: 0.95em;
+  }
+
+  .timestamp {
+    font-size: 0.8em;
+    color: #888;
+  }
+
+  .thread-content {
+    margin: 1em 0 0.5em;
+    font-size: 1em;
+    line-height: 1.6;
+    color: #222;
+  }
+
+  .thread-actions {
+    font-size: 0.9em;
+    color: #888;
+    display: flex;
+    gap: 1em;
+  }

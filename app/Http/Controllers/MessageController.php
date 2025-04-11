@@ -11,6 +11,15 @@ class MessageController extends Controller
         $messages = [
             ['author' => 'Shan-Yu', 'content' => '這是一則測試留言'],
             ['author' => 'Alice', 'content' => 'Hello Laravel!'],
+            ['author' => 'Alice', 'content' => 'Hello Laravel!'],
+            ['author' => 'Alice', 'content' => 'Hello Laravel!'],
+            ['author' => 'Alice', 'content' => 'Hello Laravel!'],
+            ['author' => 'Alice', 'content' => 'Hello Laravel!'],
+            ['author' => 'Alice', 'content' => 'Hello Laravel!'],
+            ['author' => 'Alice', 'content' => 'Hello Laravel!'],
+            ['author' => 'Alice', 'content' => 'Hello Laravel!'],
+            ['author' => 'Alice', 'content' => 'Hello Laravel!'],
+            ['author' => 'Alice', 'content' => 'Hello Laravel!'],
         ];
 
         return view('messages.index', ['messages' => $messages]);

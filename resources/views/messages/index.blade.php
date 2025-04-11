@@ -1,19 +1,27 @@
-<!-- resources/views/messages/index.blade.php -->
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <title>留言板</title>
-</head>
-<body>
-    <h1>留言板首頁</h1>
+{{-- resources/views/messages/index.blade.php --}}
 
-    <ul>
-        @foreach ($messages as $message)
-            <li>{{ $message['content'] }} - {{ $message['author'] }}</li>
-        @endforeach
-    </ul>
+@extends('layouts.app')
 
-    <a href="{{ route('messages.create') }}">新增留言</a>
-</body>
-</html>
+@section('title', '留言板 Threads 風格')
+
+@section('content')
+<div class="threads-container">
+    @foreach ($messages as $message)
+        <div class="thread-card">
+            <div class="thread-header">
+                <img src="/icons/user.svg" alt="avatar" class="avatar">
+                <div>
+                    <div class="author">{{ $message['author'] }}</div>
+                    <div class="timestamp">{{ $message['created_at'] ?? '剛剛' }}</div>
+                </div>
+            </div>
+            <div class="thread-content">
+                {{ $message['content'] }}
+            </div>
+            <div class="thread-actions">
+                ❤️ 7　💬 1　🔁
+            </div>
+        </div>
+    @endforeach
+</div>
+@endsection
