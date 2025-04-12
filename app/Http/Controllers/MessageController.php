@@ -14,7 +14,8 @@ class MessageController extends Controller
     public function index()
     {
         $messages = Message::with('user')->get();
-        return MessageResource::collection($messages);
+        // return MessageResource::collection($messages);
+        return view('messages.index', ['messages' => MessageResource::collection($messages)]);
     }
 
     public function show($id)

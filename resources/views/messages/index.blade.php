@@ -1,5 +1,7 @@
 {{-- resources/views/messages/index.blade.php --}}
 
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+
 @extends('layouts.app')
 
 @section('title', 'Threads')
@@ -11,7 +13,7 @@
             <div class="thread-header">
                 <img src="/icons/user.svg" alt="avatar" class="avatar">
                 <div>
-                    <div class="author">{{ $message['author'] }}</div>
+                    <div class="author">{{ $message['user']['name'] }}</div>
                     <div class="timestamp">{{ $message['created_at'] ?? '剛剛' }}</div>
                 </div>
             </div>
@@ -19,7 +21,27 @@
                 {{ $message['content'] }}
             </div>
             <div class="thread-actions">
-                ❤️ 7　💬 1　🔁
+                <div class="thread-buttons">
+                    <button class="">
+                        ❤️
+                    </button>
+                    <span>
+                        {{ $message['likes'] ?? 0 }}
+                    </span>
+                </div>
+                <div class="thread-buttons">
+                    <button class="">
+                        💬
+                    </button>
+                    <span>
+                        {{ $message['comments'] ?? 0 }}
+                    </span>
+                </div>
+                <div>
+                    <button class="">
+                        🔁
+                    </button>
+                </div>
             </div>
         </div>
     @endforeach

@@ -2,24 +2,25 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('messages.index');
+Route::get('/home', [MessageController::class, 'index'])->name('messages.index');
 Route::get('/home/create', [HomeController::class, 'create'])->name('messages.create');
 Route::post('/home', [HomeController::class, 'store'])->name('messages.store');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
 
 Route::get('/login', function () {
     return view('auth.login');
