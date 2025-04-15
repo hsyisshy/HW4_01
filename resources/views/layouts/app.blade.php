@@ -31,7 +31,7 @@
   <!-- Bottom Additional Options -->
   <div class="sidebar-bottom">
     <a href="#"><img src="/icons/bell.svg" alt="通知"></a>
-    <a href="{{ route('login.ui') }}"><img src="/icons/menu.svg" alt="更多選項"></a>
+    <a href="{{ route('login') }}"><img src="/icons/menu.svg" alt="更多選項"></a>
   </div>
 
 </aside>
