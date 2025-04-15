@@ -28,6 +28,13 @@
     <a href="{{ route('profile') }}"><img src="/icons/user.svg" alt="個人"></a>
   </div>
 
+  <form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit" class="your-button-styles"> 
+        {{ __('logout') }}
+    </button>
+</form>
+
   <!-- Bottom Additional Options -->
   <div class="sidebar-bottom">
     <a href="#"><img src="/icons/bell.svg" alt="通知"></a>
