@@ -38,7 +38,7 @@
             <img src="/icons/menu.svg" alt="登出">
         </button>
     </form>
-</div>
+  </div>
 
 </aside>
 
@@ -49,4 +49,3 @@
 
 </body>
 </html>
-

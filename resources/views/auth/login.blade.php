@@ -6,7 +6,6 @@
     <div class="login-container">
         <h1>登入 Threads</h1>
 
-
         <x-validation-errors class="mb-4" />
 
         @if (session('status'))
@@ -14,7 +13,6 @@
                 {{ session('status') }}
             </div>
         @endif
-
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
