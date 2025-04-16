@@ -1,5 +1,3 @@
-{{-- resources/views/messages/index.blade.php --}}
-
 @extends('layouts.app')
 
 @section('title', 'Threads')
@@ -11,12 +9,12 @@
             <div class="thread-header">
                 <img src="/icons/user.svg" alt="avatar" class="avatar">
                 <div>
-                    <div class="author">{{ $message->user->name }}</div>
-                    <div class="timestamp">{{ $message['created_at'] ?? '剛剛' }}</div>
+                    <div class="author">{{ $message->user->name ?? '匿名' }}</div>
+                    <div class="timestamp">{{ $message->created_at->diffForHumans() }}</div>
                 </div>
             </div>
             <div class="thread-content">
-                {{ $message['content'] }}
+                {{ $message->content }}
             </div>
             <div class="thread-actions">
                 ❤️ 7　💬 1　🔁

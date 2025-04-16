@@ -8,6 +8,13 @@
 
         <x-validation-errors class="mb-4" />
 
+        {{-- 顯示登入錯誤訊息（例如：帳號密碼錯誤） --}}
+        @if (session('error'))
+            <div class="mb-4 text-red-500">
+                {{ session('error') }}
+            </div>
+        @endif
+
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ session('status') }}
@@ -20,6 +27,7 @@
             <input type="password" name="password" placeholder="密碼" required>
             <button type="submit">登入</button>
         </form>
+
         <p class="signup-link">還沒有帳號嗎？<a href="{{ route('register') }}">註冊</a></p>
     </div>
 @endsection

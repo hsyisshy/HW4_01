@@ -2,25 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    protected $redirectTo = '/home';
+    // 顯示登入頁
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
+    // 顯示註冊頁
     public function showRegistrationForm()
     {
-        return view('auth.register2');
+        return view('auth.register');
     }
-    public function redirectTo(){    
-        if(Auth::user()->role_id == 2){
-            //假如是一般使用者
-            return '/home';
-        }else if(Auth::user()->role_id == 1){
-            //假如是管理員
-            return '/admin';
-        }else{
-            return '/login';
+
+    // 處理登入邏輯
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            // ✅ 登入成功後一律導向 /messages
+            return redirect()->intended('/messages');
         }
+
+        return back()->with('error', '帳號或密碼錯誤');
+    }
+
+    // 處理登出
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }
