@@ -16,7 +16,7 @@
 
   <!-- Top Logo -->
   <div class="sidebar-top">
-    <a href="#"><img src="/icons/logo.png" alt="Threads Logo" class="logo"></a>
+    <a href="{{ route('messages.index') }}"><img src="/icons/logo.png" alt="Threads Logo" class="logo"></a>
   </div>
 
   <!-- Middle Main Navigation -->
@@ -28,18 +28,17 @@
     <a href="{{ route('profile') }}"><img src="/icons/user.svg" alt="個人"></a>
   </div>
 
-  <form method="POST" action="{{ route('logout') }}">
-    @csrf
-    <button type="submit" class="your-button-styles"> 
-        {{ __('logout') }}
-    </button>
-</form>
-
   <!-- Bottom Additional Options -->
   <div class="sidebar-bottom">
     <a href="#"><img src="/icons/bell.svg" alt="通知"></a>
-    <a href="{{ route('login') }}"><img src="/icons/menu.svg" alt="更多選項"></a>
-  </div>
+
+    <form method="POST" action="{{ route('logout') }}" class="icon-logout-form">
+        @csrf
+        <button type="submit" class="icon-button" title="登出">
+            <img src="/icons/menu.svg" alt="登出">
+        </button>
+    </form>
+</div>
 
 </aside>
 
