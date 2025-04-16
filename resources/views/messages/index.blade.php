@@ -7,43 +7,18 @@
 @section('title', 'Threads')
 
 @section('content')
-<div class="threads-container">
-    @foreach ($messages as $message)
-        <div class="thread-card">
-            <div class="thread-header">
-                <img src="/icons/user.svg" alt="avatar" class="avatar">
-                <div>
-                    <div class="author">{{ $message['user']['name'] }}</div>
-                    <div class="timestamp">{{ $message['created_at'] ?? '剛剛' }}</div>
-                </div>
-            </div>
-            <div class="thread-content">
-                {{ $message['content'] }}
-            </div>
-            <div class="thread-actions">
-                <div class="thread-buttons">
-                    <button class="">
-                        ❤️
-                    </button>
-                    <span>
-                        {{ $message['likes'] ?? 0 }}
-                    </span>
-                </div>
-                <div class="thread-buttons">
-                    <button class="">
-                        💬
-                    </button>
-                    <span>
-                        {{ $message['comments'] ?? 0 }}
-                    </span>
-                </div>
-                <div>
-                    <button class="">
-                        🔁
-                    </button>
-                </div>
-            </div>
+    <div class="flex flex-col">
+
+        <div class="threads-container" id="threads-container">
+            @foreach ($messages as $message)
+                @include('messages._message_card', ['message' => $message])
+            @endforeach
         </div>
-    @endforeach
-</div>
+        @if ($hasMore)
+            <div class="load-more-container text-center my-4 flex justify-center">
+                <button id="load-more"
+                    class="px-4 py-2 bg-gray-700 text-white rounded hover:bg-black duration-300">載入更多</button>
+            </div>
+        @endif
+    </div>
 @endsection

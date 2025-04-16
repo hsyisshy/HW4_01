@@ -13,9 +13,22 @@ class MessageController extends Controller
     use AuthorizesRequests;
     public function index()
     {
-        $messages = Message::with('user')->get();
         // return MessageResource::collection($messages);
-        return view('messages.index', ['messages' => MessageResource::collection($messages)]);
+        $messages = Message::with('user')->latest()->paginate(10);
+        return view('messages.index', [
+            'messages' => MessageResource::collection($messages),
+            'hasMore' => $messages->hasMorePages()
+        ]);
+    }
+
+    public function loadMore(Request $request)
+    {
+        $page = $request->get('page', 1);
+        $messages = Message::with('user')->latest()->paginate(10, ['*'], 'page', $page);
+        return response()->json([
+            'data' => MessageResource::collection($messages),
+            'hasMore' => $messages->hasMorePages()
+        ]);
     }
 
     public function show($id)
@@ -38,10 +51,11 @@ class MessageController extends Controller
         return new MessageResource($message);
     }
 
-    public function update(Request $request, $id) {
-        
+    public function update(Request $request, $id)
+    {
+
         $message = Message::findOrFail($id);
-        
+
         $this->authorize('update', $message);
 
         $request->validate([
@@ -55,9 +69,10 @@ class MessageController extends Controller
         return new MessageResource($message);
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $message = Message::findOrFail($id);
-        
+
         $this->authorize('delete', $message);
 
         $message->delete();
