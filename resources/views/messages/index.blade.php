@@ -11,7 +11,7 @@
             <div class="thread-header">
                 <img src="/icons/user.svg" alt="avatar" class="avatar">
                 <div>
-                    <div class="author">{{ $message['author'] }}</div>
+                    <div class="author">{{ $message->user->name }}</div>
                     <div class="timestamp">{{ $message['created_at'] ?? '剛剛' }}</div>
                 </div>
             </div>

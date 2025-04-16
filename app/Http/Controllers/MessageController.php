@@ -24,16 +24,8 @@ class MessageController extends Controller
     {
         $messages = Message::with('user')->latest()->get();
 
-        $messagesArray = $messages->map(function ($msg) {
-            return [
-                'author' => $msg->user->name ?? '匿名',
-                'content' => $msg->content,
-                'created_at' => $msg->created_at->diffForHumans(),
-            ];
-        });
-
         return view('messages.index', [
-            'messages' => $messagesArray
+            'messages' => $messages
         ]);
     }
 
@@ -54,7 +46,7 @@ class MessageController extends Controller
             'user_id' => Auth::id(),
         ]);
 
-        return new MessageResource($message);
+        return redirect()->route('messages.index')->with('status', '貼文成功送出！');
     }
 
     public function update(Request $request, $id)

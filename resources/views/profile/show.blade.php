@@ -1,45 +1,38 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div>
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-            @if (Laravel\Fortify\Features::canUpdateProfileInformation())
-                @livewire('profile.update-profile-information-form')
+@section('title', '個人頁面')
 
-                <x-section-border />
-            @endif
-
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.update-password-form')
-                </div>
-
-                <x-section-border />
-            @endif
-
-            @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.two-factor-authentication-form')
-                </div>
-
-                <x-section-border />
-            @endif
-
-            <div class="mt-10 sm:mt-0">
-                @livewire('profile.logout-other-browser-sessions-form')
+@section('content')
+<div class="profile-container">
+    <div class="profile-header">
+        <img src="{{ Auth::user()->profile_photo_url }}" alt="Avatar" class="profile-avatar">
+        <div class="profile-info">
+            <h2 class="profile-name">{{ Auth::user()->name }}</h2>
+            <p class="profile-bio">探索中的 Laravel 學習者 🌱</p>
+            <div class="profile-stats">
+                <span>{{ $messages->count() }} Threads</span>・<span>120 Followers</span>・<span>80 Following</span>
             </div>
-
-            @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                <x-section-border />
-
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.delete-user-form')
-                </div>
-            @endif
         </div>
     </div>
-</x-app-layout>
+
+    <div class="threads-container">
+        @foreach ($messages as $message)
+            <div class="thread-card">
+                <div class="thread-header">
+                    <img src="{{ Auth::user()->profile_photo_url }}" alt="avatar" class="avatar">
+                    <div>
+                        <div class="author">{{ Auth::user()->name }}</div>
+                        <div class="timestamp">{{ $message->created_at->diffForHumans() }}</div>
+                    </div>
+                </div>
+                <div class="thread-content">
+                    {{ $message->content }}
+                </div>
+                <div class="thread-actions">
+                    ❤️ 7　💬 1　🔁
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+@endsection

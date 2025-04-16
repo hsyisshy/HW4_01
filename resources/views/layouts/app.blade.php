@@ -21,7 +21,7 @@
       <a href="#"><img src="/icons/search.svg" alt="搜尋"></a>
       <a href="{{ route('messages.create') }}"><img src="/icons/plus.svg" alt="發文"></a>
       <a href="#"><img src="/icons/heart.svg" alt="喜歡"></a>
-      <a href="{{ route('profile') }}"><img src="/icons/user.svg" alt="個人"></a>
+      <a href="{{ route('profile.show') }}"><img src="/icons/user.svg" alt="個人"></a>
     </div>
 
     <!-- Bottom Additional Options -->

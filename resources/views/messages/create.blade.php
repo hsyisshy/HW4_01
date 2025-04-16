@@ -10,7 +10,7 @@
         <div class="thread-header">
             <img src="/icons/user.svg" class="avatar" alt="avatar">
             <div>
-                <input type="text" name="author" placeholder="你的名字" class="input-author" required>
+                <div class="font-medium text-gray-800">{{ Auth::user()->name }}</div>
             </div>
         </div>
 
