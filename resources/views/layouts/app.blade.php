@@ -1,3 +1,5 @@
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -13,16 +15,16 @@
   <aside class="sidebar">
     <!-- Top Logo -->
     <div class="sidebar-top">
-      <a href="{{ route('messages.index') }}"><img src="/icons/logo.png" alt="Threads Logo" class="logo"></a>
+      <a href="{{ route('messages.index') }}"><img src="/icons/logo.png" alt="Threads Logo" class="logo hover:scale-125 hover:duration-200 ease-in-out transition-all"></a>
     </div>
 
     <!-- Middle Main Navigation -->
     <div class="sidebar-middle">
-      <a href="{{ route('messages.index') }}"><img src="/icons/home.svg" alt="首頁"></a>
-      <a href="#"><img src="/icons/search.svg" alt="搜尋"></a>
-      <a href="{{ route('messages.create') }}"><img src="/icons/plus.svg" alt="發文"></a>
-      <a href="#"><img src="/icons/heart.svg" alt="喜歡"></a>
-      <a href="{{ route('profile.show') }}"><img src="/icons/user.svg" alt="個人"></a>
+      <a href="{{ route('messages.index') }}"><img class="w-[40px] h-fit lg:w-[35px]" src="/icons/home.svg" alt="首頁"></a>
+      <a href="#"><img class="w-[40px] h-fit lg:w-[35px]" src="/icons/search.svg" alt="搜尋"></a>
+      <a href="{{ route('messages.create') }}"><img class="w-[40px] h-fit lg:w-[35px]" src="/icons/plus.svg" alt="發文"></a>
+      <a href="#"><img class="w-[40px] h-fit lg:w-[35px]" src="/icons/heart.svg" alt="喜歡"></a>
+      <a href="{{ route('profile.show') }}"><img class="w-[40px] h-fit lg:w-[35px]" src="/icons/user.svg" alt="個人"></a>
     </div>
 
     <!-- Bottom Additional Options -->

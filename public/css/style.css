@@ -29,6 +29,7 @@ body {
   /* 上方 logo */
   .sidebar-top {
     margin-bottom: 2em;
+
   }
 
   .logo {
@@ -40,7 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5em; /* icon 間距 */
+    gap: 4em; /* icon 間距 */
   }
 
   /* 下方附加功能 icon 區 */
@@ -64,10 +65,10 @@ body {
     opacity: 1;
   }
 
-  .sidebar img {
+  /* .sidebar img {
     width: 40px;
     height: 40px;
-  }
+  } */
 
   .icon-button {
     background: none;
