@@ -31,6 +31,7 @@ async function loadMoreMessages() {
         currentPage++;
         const response = await fetch(`api/messages/load?page=${currentPage}`);
         const result = await response.json();
+        console.log(result);
 
         await new Promise(resolve => setTimeout(resolve, 800)); // 延遲 800ms
 

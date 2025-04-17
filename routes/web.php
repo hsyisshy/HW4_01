@@ -26,7 +26,7 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register')
 Route::middleware(['auth', 'verified'])->group(function () {
 
     // 留言功能
-    Route::get('/messages', [MessageController::class, 'indexPage'])->name('messages.index');
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
     Route::get('/messages/create', [MessageController::class, 'create'])->name('messages.create');
     Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
 

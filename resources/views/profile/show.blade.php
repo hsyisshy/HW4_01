@@ -29,7 +29,17 @@
                     {{ $message->content }}
                 </div>
                 <div class="thread-actions">
-                    ❤️ 7　💬 1　🔁
+                    <div class="thread-buttons">
+                        <button>❤️</button>
+                        <span>{{ $message['likes'] ?? 0 }}</span>
+                    </div>
+                    <div class="thread-buttons">
+                        <button>💬</button>
+                        <span>{{ $message['comments'] ?? 0 }}</span>
+                    </div>
+                    <div>
+                        <button>🔁</button>
+                    </div>
                 </div>
             </div>
         @endforeach
