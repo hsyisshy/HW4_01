@@ -37,7 +37,7 @@
 
 </aside>
 
-<main class="main-content">
+<main class="main-content mb-[60px] md:mb-0 h-fit">
     @yield('content')
 </main>
 <div>

@@ -7,7 +7,7 @@
 @section('title', 'Threads')
 
 @section('content')
-    <div class="flex flex-col">
+    <div class="flex flex-col mb-2">
 
         <div class="threads-container" id="threads-container">
             @foreach ($messages as $message)
@@ -15,10 +15,11 @@
             @endforeach
         </div>
         @if ($hasMore)
-            <div class="load-more-container text-center my-4 flex justify-center">
-                <button id="load-more"
-                    class="px-4 py-2 bg-gray-700 text-white rounded hover:bg-black duration-300">載入更多</button>
+            <div id="loading-spinner" class="flex-col items-center py-4 hidden">
+                <div class="w-6 h-6 border-4 border-black border-t-transparent rounded-full animate-spin mb-2"></div>
+                <span class="text-gray-500 text-sm">載入中...</span>
             </div>
+            
         @endif
     </div>
 @endsection
