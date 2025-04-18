@@ -63,10 +63,11 @@ class MessageController extends Controller
         return redirect()->route('messages.index')->with('status', '貼文成功送出！');
     }
 
-    public function update(Request $request, $id) {
-        
+    public function update(Request $request, $id)
+    {
+
         $message = Message::findOrFail($id);
-        
+
         $this->authorize('update', $message);
 
         $request->validate([
@@ -80,9 +81,10 @@ class MessageController extends Controller
         return new MessageResource($message);
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $message = Message::findOrFail($id);
-        
+
         $this->authorize('delete', $message);
 
         $message->delete();

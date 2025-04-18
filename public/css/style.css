@@ -41,7 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4em; /* icon 間距 */
+    gap: 3em; /* icon 間距 */
   }
 
   /* 下方附加功能 icon 區 */
@@ -49,8 +49,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2em;
-    margin-bottom: 5em;
+    gap: 1em;
+    margin-top: 1em;
+    /* margin-bottom: 5em; */
   }
 
   /* icon 樣式（中下兩區通用） */
@@ -287,7 +288,7 @@ body {
 
 
   /* RWD */
-  @media (max-width: 768px), (max-height: 500px) {
+  @media (max-width: 768px), (max-height: 600px) {
     .sidebar {
       position: fixed;
       flex-direction: row;
@@ -321,6 +322,7 @@ body {
 
     .sidebar-bottom {
       margin: 0;
+      margin-left: 1em;
     }
 
     .sidebar img {
