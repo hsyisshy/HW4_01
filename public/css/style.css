@@ -23,12 +23,13 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 2em 0;
-    z-index: 1000;
+    /* z-index: 1000; */
   }
 
   /* 上方 logo */
   .sidebar-top {
     margin-bottom: 2em;
+
   }
 
   .logo {
@@ -40,7 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5em; /* icon 間距 */
+    gap: 3em; /* icon 間距 */
   }
 
   /* 下方附加功能 icon 區 */
@@ -48,8 +49,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2em;
-    margin-bottom: 5em;
+    gap: 1em;
+    margin-top: 1em;
+    /* margin-bottom: 5em; */
   }
 
   /* icon 樣式（中下兩區通用） */
@@ -64,7 +66,25 @@ body {
     opacity: 1;
   }
 
-  .sidebar img {
+  /* .sidebar img {
+    width: 40px;
+    height: 40px;
+  } */
+
+  .icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+  }
+
+  .icon-button:hover {
+    opacity: 1;
+  }
+
+  .icon-button img {
     width: 40px;
     height: 40px;
   }
@@ -268,8 +288,7 @@ body {
 
 
   /* RWD */
-  @media (max-width: 768px) {
-
+  @media (max-width: 768px), (max-height: 600px) {
     .sidebar {
       position: fixed;
       flex-direction: row;
@@ -277,22 +296,33 @@ body {
       align-items: center;
       width: 100vw;
       height: 60px;
-      padding: 0;
       bottom: 0;
       top: auto;
-      border-right: none;
+      padding: 0;
       border-top: 1px solid #eee;
+      border-right: none;
       background-color: #fff;
+      z-index: 1000;
     }
 
-    .sidebar-top,
-    .sidebar-bottom {
+    .sidebar-top {
       display: none;
     }
 
-    .sidebar-middle {
+    .sidebar-middle,
+    .sidebar-bottom {
       flex-direction: row;
-      gap: 3em;
+      display: flex;
+      gap: 2em;
+    }
+
+    .sidebar-middle {
+      margin: 0;
+    }
+
+    .sidebar-bottom {
+      margin: 0;
+      margin-left: 1em;
     }
 
     .sidebar img {
@@ -300,7 +330,6 @@ body {
       height: 30px;
     }
 
-    /* 內容往下移 */
     .main-content {
       margin-top: 1em;
       padding-bottom: 4em;
@@ -320,6 +349,3 @@ body {
       font-size: 0.95em;
     }
   }
-
-
-

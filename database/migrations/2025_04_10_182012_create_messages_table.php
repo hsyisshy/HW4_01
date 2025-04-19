@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->text("content");
+            $table->integer("likes")->default(0);
+            $table->integer("comments")->default(0);
             $table->timestamps();
         });
     }

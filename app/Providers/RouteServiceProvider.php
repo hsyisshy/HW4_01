@@ -6,6 +6,8 @@ use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+use Laravel\Fortify\Fortify;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
@@ -17,8 +19,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    //登入後跳轉
-    public const HOME = '/';
+
+    public const HOME = '/messages';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -44,10 +46,17 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function configureRateLimiting()
+    protected function configureRateLimiting():void
     {
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
+        });
+
+        RateLimiter::for('auth.login', function (Request $request) {
+            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
+
+
+            return Limit::perMinute(5)->by($throttleKey);
         });
     }
 }

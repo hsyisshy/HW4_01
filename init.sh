@@ -33,13 +33,13 @@ php artisan route:clear
 php artisan view:clear
 php artisan cache:clear
 
-# 6. Optional: Run migrations
-read -p "❓ Do you want to run database migrations? (y/N): " run_migrate
-if [[ "$run_migrate" == "y" || "$run_migrate" == "Y" ]]; then
-  echo "🧱 Running database migrations..."
-  php artisan migrate
+# 6. Run migrations + seed
+read -p "❓ Do you want to reset and seed the database (php artisan migrate:fresh --seed)? (y/N): " run_seed
+if [[ "$run_seed" == "y" || "$run_seed" == "Y" ]]; then
+  echo "🧱 Rebuilding database with seed data..."
+  php artisan migrate:fresh --seed
 else
-  echo "🚫 Skipping migrations."
+  echo "🚫 Skipping migrate:fresh --seed."
 fi
 
 # 7. Install front-end dependencies (if package.json exists)

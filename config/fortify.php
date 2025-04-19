@@ -73,7 +73,7 @@ return [
     |
     */
 
-    'home' => '/dashboard',
+    'home' => '/messages',
 
     /*
     |--------------------------------------------------------------------------
@@ -115,22 +115,27 @@ return [
     */
 
     'limiters' => [
-        'login' => 'login',
+        'login' => 'auth.login',
         'two-factor' => 'two-factor',
     ],
+
+    'views' => [
+    'login' => 'auth.login', 
+],
+
 
     /*
     |--------------------------------------------------------------------------
     | Register View Routes
     |--------------------------------------------------------------------------
     |
-    | Here you may specify if the routes returning views should be disabled as
+    | Her【e you may specify if the routes returning views should be disabled as
     | you may not need them when building your own application. This may be
     | especially true if you're writing a custom single-page application.
     |
     */
 
-    'views' => true,
+ 
 
     /*
     |--------------------------------------------------------------------------
