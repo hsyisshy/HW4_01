@@ -1,3 +1,30 @@
+# Laravel Message Board System
+
+A message board system built with Laravel, featuring user authentication and threaded discussions.
+
+## 成員分工
+| 成員 | 洪永結 | 蕭善彧 | 汪宸宇 |
+|------|------|------|------|
+| 系統整合 | ✔️ | ✔️ | ✔️ |
+| laravel API 及新增修改功能 | ✔️ | —— | —— |
+| Threads 留言板 UI 及串接後端 | —— | ✔️ | —— |
+| Jetstream 使用者登入登出驗證 | —— | —— | ✔️ |
+
+## Features
+
+- User authentication via Jetstream
+- Threaded message board discussions
+- RESTful API endpoints
+- Modern UI with responsive design
+
+## Tech Stack
+
+- Laravel 10.x
+- Laravel Jetstream for authentication
+- MySQL database
+- Vue.js for frontend components
+- Tailwind CSS for styling
+
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
