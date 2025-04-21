@@ -5,10 +5,14 @@ A message board system built with Laravel, featuring user authentication and thr
 ## 成員分工
 | 成員 | 洪永結 | 蕭善彧 | 汪宸宇 |
 |------|------|------|------|
-| 系統整合 | ✔️ | ✔️ | ✔️ |
 | laravel API 及新增修改功能 | ✔️ | —— | —— |
 | Threads 留言板 UI 及串接後端 | —— | ✔️ | —— |
 | Jetstream 使用者登入登出驗證 | —— | —— | ✔️ |
+| 系統整合 | ✔️ | ✔️ | ✔️ |
+
+http://sd01.yeahlowflicker.directory
+http://sd02.yeahlowflicker.directory
+http://sd03.yeahlowflicker.directory
 
 ## Features
 
@@ -19,10 +23,10 @@ A message board system built with Laravel, featuring user authentication and thr
 
 ## Tech Stack
 
-- Laravel 10.x
+- Laravel
 - Laravel Jetstream for authentication
-- MySQL database
-- Vue.js for frontend components
+- SQLite database
+- Blade for frontend components
 - Tailwind CSS for styling
 
 
